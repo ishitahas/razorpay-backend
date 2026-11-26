@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><title>Payment Result</title></head>
+<body style="font-family: system-ui, sans-serif; max-width: 420px; margin: 60px auto;">
+  <h2 id="t"></h2>
+  <p id="d"></p>
+  <a href="/">Back</a>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const ok = p.get("status") === "success";
+    document.getElementById("t").textContent = ok ? "Payment verified ✅" : "Payment failed ❌";
+    document.getElementById("d").textContent = ok ? "Payment ID: " + p.get("payment_id") : "Signature verification failed.";
+  </script>
+</body>
+</html>
